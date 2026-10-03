@@ -93,9 +93,7 @@ export default function Projects() {
 
             <div className="pt-2 flex flex-wrap gap-4">
               <a
-                href={getWhatsAppLink(
-                  'Olá João Moreira, gostaria de saber mais sobre seus projetos e soluções digitais.',
-                )}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] via-[#C9A227] to-[#B08B1B] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-lg transition-all"
@@ -208,9 +206,7 @@ export default function Projects() {
 
             <div className="pt-4">
               <a
-                href={getWhatsAppLink(
-                  'Olá João, li sua Visão de Futuro e gostaria de propor uma oportunidade ou parceria de desenvolvimento.',
-                )}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#0A1F44] bg-[#C9A227] hover:bg-[#DEC05B] shadow-md transition-all"

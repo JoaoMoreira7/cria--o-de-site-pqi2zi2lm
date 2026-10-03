@@ -93,9 +93,7 @@ export default function Calculations() {
             <div className="pt-2 flex flex-wrap gap-4">
               {/* Botão CTA Verbatim */}
               <a
-                href={getWhatsAppLink(
-                  'Olá João Moreira, gostaria de solicitar um orçamento para elaboração de cálculos.',
-                )}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] via-[#C9A227] to-[#B08B1B] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-lg transition-all"
@@ -178,9 +176,7 @@ export default function Calculations() {
                       Entregue com memória de cálculo em PDF e planilha
                     </span>
                     <a
-                      href={getWhatsAppLink(
-                        `Olá João, gostaria de um orçamento para cálculos na área ${area.title}.`,
-                      )}
+                      href={getWhatsAppLink()}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs font-bold text-[#0A1F44] hover:text-[#C9A227] transition-colors"
@@ -251,9 +247,7 @@ export default function Calculations() {
           </p>
           <div className="pt-2">
             <a
-              href={getWhatsAppLink(
-                'Olá João Moreira, gostaria de solicitar orçamento para cálculos.',
-              )}
+              href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] to-[#C9A227] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-xl transition-all"

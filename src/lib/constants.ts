@@ -8,12 +8,14 @@ export const CONTACT_INSTAGRAM_URL = 'https://instagram.com/joaomoreiraperito'
 export const PUBLIC_BRAND_NAME = 'JOÃO MOREIRA'
 export const LEGAL_NAME = 'João Moreira'
 
+export const DEFAULT_WHATSAPP_MESSAGE =
+  'Olá, João Moreira! Gostaria de falar sobre um serviço e receber mais informações. Poderia me atender?'
+
 /**
- * Gera URL do WhatsApp com mensagem pré-preenchida contextual
+ * Gera URL do WhatsApp com a mensagem padrão pré-preenchida
  */
 export function getWhatsAppLink(message?: string): string {
-  const defaultText = 'Olá João Moreira, gostaria de solicitar uma avaliação técnica.'
-  const text = encodeURIComponent(message || defaultText)
+  const text = encodeURIComponent(message || DEFAULT_WHATSAPP_MESSAGE)
   return `https://wa.me/${CONTACT_WHATSAPP_RAW}?text=${text}`
 }
 
@@ -37,7 +39,7 @@ export const PILARES = [
     desc: 'Análise técnica para processos judiciais, elaboração de trabalhos periciais, cálculos e esclarecimento de questões técnicas.',
     path: '/pericia-judicial',
     ctaText: 'Solicitar Perícia',
-    whatsappMessage: 'Olá João, gostaria de solicitar uma perícia judicial.',
+    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
   },
   {
     num: '02',
@@ -45,8 +47,7 @@ export const PILARES = [
     desc: 'Suporte especializado para advogados, empresas e partes que precisam compreender, conferir ou contestar aspectos técnicos de um processo.',
     path: '/assistencia-tecnica',
     ctaText: 'Solicitar Assistência Técnica',
-    whatsappMessage:
-      'Olá João, gostaria de solicitar suporte em assistência técnica para processo.',
+    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
   },
   {
     num: '03',
@@ -54,8 +55,7 @@ export const PILARES = [
     desc: 'Cálculos judiciais, trabalhistas, previdenciários, cíveis e financeiros, incluindo liquidação e atualização de valores.',
     path: '/calculos',
     ctaText: 'Solicitar Cálculos',
-    whatsappMessage:
-      'Olá João, gostaria de solicitar um orçamento para elaboração/conferência de cálculos.',
+    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
   },
   {
     num: '04',
@@ -63,7 +63,7 @@ export const PILARES = [
     desc: 'Análise de problemas administrativos, financeiros, documentais, empresariais e operacionais.',
     path: '/consultoria',
     ctaText: 'Falar sobre Consultoria',
-    whatsappMessage: 'Olá João, gostaria de conversar sobre consultoria técnica para o meu caso.',
+    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
   },
   {
     num: '05',
@@ -71,7 +71,6 @@ export const PILARES = [
     desc: 'Sistemas, automação, inteligência artificial e desenvolvimento de soluções digitais para transformar processos tradicionais.',
     path: '/tecnologia-ia',
     ctaText: 'Conhecer Tecnologia & IA',
-    whatsappMessage:
-      'Olá João, gostaria de conversar sobre suas soluções em tecnologia, IA e automação.',
+    whatsappMessage: DEFAULT_WHATSAPP_MESSAGE,
   },
 ]

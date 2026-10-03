@@ -402,9 +402,7 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a
-              href={getWhatsAppLink(
-                'Olá João, li sua trajetória profissional e gostaria de agendar uma conversa.',
-              )}
+              href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-[#0A1F44] bg-[#C9A227] hover:bg-[#DEC05B] shadow-lg transition-all"

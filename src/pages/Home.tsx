@@ -238,7 +238,7 @@ export default function Home() {
                     </Link>
 
                     <a
-                      href={getWhatsAppLink(pilar.whatsappMessage)}
+                      href={getWhatsAppLink()}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[11px] font-semibold text-[#25D366] hover:underline"
@@ -591,7 +591,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto pt-2">
             {/* WhatsApp (FALE COM JOÃO MOREIRA) */}
             <a
-              href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+              href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-xl hover:shadow-[#25D366]/30 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0"

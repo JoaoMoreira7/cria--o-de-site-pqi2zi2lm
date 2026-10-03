@@ -95,9 +95,7 @@ export default function TechAndAI() {
               </Link>
 
               <a
-                href={getWhatsAppLink(
-                  'Olá João Moreira, gostaria de conversar sobre tecnologia, automação e inteligência artificial.',
-                )}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white bg-[#102A5C] hover:bg-[#163878] border border-[#C9A227]/40 transition-all"

@@ -90,7 +90,7 @@ export default function Layout({ children }: LayoutProps) {
 
           <div className="flex items-center gap-4 sm:gap-6">
             <a
-              href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+              href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 hover:text-[#C9A227] transition-colors font-medium"
@@ -327,7 +327,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="pt-6 border-t border-[#1A3868] flex flex-col gap-3 mt-6">
               <div className="space-y-2 text-xs text-slate-300">
                 <a
-                  href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+                  href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 p-2 rounded-lg bg-[#102A5C] hover:bg-[#163878] transition-colors"
@@ -508,9 +508,7 @@ export default function Layout({ children }: LayoutProps) {
               </h3>
               <div className="space-y-2.5 text-xs sm:text-sm">
                 <a
-                  href={getWhatsAppLink(
-                    'Olá João, gostaria de solicitar uma avaliação do meu caso.',
-                  )}
+                  href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
@@ -586,7 +584,7 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Floating WhatsApp Action Button */}
       <a
-        href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+        href={getWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-20 sm:right-24 z-30 flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all text-xs font-bold"

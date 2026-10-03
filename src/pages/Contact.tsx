@@ -123,11 +123,12 @@ ${formData.mensagem}`
               <div className="space-y-3">
                 {/* Botão Verbatim: FALE COM JOÃO MOREIRA */}
                 <a
-                  href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+                  href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-between p-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                 >
+                  {' '}
                   <div className="flex items-center gap-3">
                     <Phone className="w-6 h-6 fill-white" />
                     <div className="text-left">

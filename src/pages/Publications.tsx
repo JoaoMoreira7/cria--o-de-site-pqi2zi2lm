@@ -90,9 +90,7 @@ export default function Publications() {
 
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={getWhatsAppLink(
-                  'Olá João Moreira, gostaria de ser informado sobre seus novos artigos e conteúdos técnicos.',
-                )}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-[#0A1F44] bg-[#C9A227] hover:bg-[#DEC05B] transition-colors shadow-md"
