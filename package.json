@@ -8,6 +8,7 @@
     "start": "vite dev",
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "node scripts/dump-all-objects.mjs",
     "build:dev": "vite build --mode development",
     "lint": "oxlint src",
     "lint:fix": "oxlint src --fix",

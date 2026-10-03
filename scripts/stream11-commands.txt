@@ -1,0 +1,234 @@
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+.043137 .121569 .227451 rg
+n 0 745.5118 595.2756 96.37795 re f*
+.031373 .101961 .188235 rg
+n 0 745.5118 595.2756 2 re f*
+.788235 .635294 .152941 RG
+1.1 w
+n 0 745.5118 m 595.2756 745.5118 l S
+q
+.788235 .635294 .152941 RG
+1.71 w
+1 J
+1 j
+n 62.3622 795.5547 m 62.3622 808.8547 l S
+n 58.1822 795.5547 m 66.5422 795.5547 l S
+n 56.2822 808.0947 m 68.4422 808.0947 l S
+n 56.2822 808.0947 m 53.6222 804.1047 l S
+n 56.2822 808.0947 m 58.9422 804.1047 l S
+n 53.6222 804.1047 m 58.9422 804.1047 l S
+n 68.4422 808.0947 m 65.7822 804.1047 l S
+n 68.4422 808.0947 m 71.1022 804.1047 l S
+n 65.7822 804.1047 m 71.1022 804.1047 l S
+Q
+1 1 1 rg
+BT /F2 16 Tf 19.2 TL ET
+BT 1 0 0 1 82.20472 799.3701 Tm (JM PER\315CIAS) Tj T* ET
+.788235 .635294 .152941 rg
+BT /F2 7 Tf 8.4 TL ET
+BT 1 0 0 1 82.20472 786.6142 Tm (T \311 C N I C A S) Tj T* ET
+.894118 .768627 .352941 rg
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 391.0367 802.2047 Tm (Per\355cia Judicial \267 Assist\352ncia T\351cnica) Tj T* ET
+.615686 .690196 .776471 rg
+BT /F1 8 Tf 9.6 TL ET
+BT 1 0 0 1 337.1827 788.0315 Tm (Consultoria Administrativa \267 Cont\341bil \267 An\341lise Financeira) Tj T* ET
+1 1 1 rg
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 392.3107 771.0236 Tm (Atua\347\343o em todo o Brasil \267 desde 2019) Tj T* ET
+.043137 .121569 .227451 rg
+n 0 0 595.2756 56.69291 re f*
+.788235 .635294 .152941 RG
+1.1 w
+n 0 56.69291 m 595.2756 56.69291 l S
+1 1 1 rg
+BT /F2 9 Tf 10.8 TL ET
+BT 1 0 0 1 56.69291 34.01575 Tm (Jo\343o Carlos Moreira Santos \227 Perito Judicial) Tj T* ET
+.615686 .690196 .776471 rg
+BT /F1 8 Tf 9.6 TL ET
+BT 1 0 0 1 56.69291 21.25984 Tm (Perito nomeado \267 TJMG / TJSP) Tj T* ET
+.894118 .768627 .352941 rg
+BT /F2 9.5 Tf 11.4 TL ET
+BT 1 0 0 1 468.3492 34.01575 Tm (\(35\) 98846-1481) Tj T* ET
+1 1 1 rg
+BT /F1 8 Tf 9.6 TL ET
+BT 1 0 0 1 431.7747 21.25984 Tm (joaomoreiraperito@gmail.com) Tj T* ET
+.337255 .396078 .478431 rg
+BT /F1 6.5 Tf 7.8 TL ET
+BT 1 0 0 1 141.576 11.33858 Tm (JM Per\355cias \227 Documento institucional. As informa\347\365es refletem a atua\347\343o profissional na data de emiss\343o.) Tj T* ET
+q
+1 0 0 1 56.69291 494.5569 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 0 cm
+q
+119.0551 0 0 227.947 0 0 cm
+/FormXob.56475b4e424e58b86e9c4a91b9da6198 Do
+Q
+Q
+q
+1 0 0 1 138.3937 215.947 cm
+q
+.788235 .635294 .152941 rg
+BT 1 0 0 1 0 4 Tm /F2 8 Tf 12 TL (APRESENTA\307\303O INSTITUCIONAL) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.3937 167.947 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 23 Tm /F2 15 Tf 19 TL (Per\355cia Judicial e Consultoria Especializada) Tj T* (para Todo o Brasil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.3937 131.947 cm
+q
+.290196 .341176 .396078 rg
+BT 1 0 0 1 0 19.5 Tm /F1 9.5 Tf 14.5 TL (Atua\347\343o t\351cnica, imparcial e fundamentada para processos judiciais, empresas e) Tj T* (pessoas f\355sicas. Laudos e pareceres que sustentam decis\365es.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.3937 108.947 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 13 Tf 16 TL (Jo\343o Carlos Moreira Santos) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.3937 95.94699 cm
+q
+.788235 .635294 .152941 rg
+BT 1 0 0 1 0 3.4 Tm /F1 8.6 Tf 12 TL (Perito Judicial \267 Consultor Administrativo e Cont\341bil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.3937 46.44699 cm
+q
+.290196 .341176 .396078 rg
+BT 1 0 0 1 0 34 Tm /F1 9.5 Tf 14.5 TL (Profissional com forma\347\343o multidisciplinar e experi\352ncia em per\355cias judiciais,) Tj T* (c\341lculos trabalhistas, an\341lises financeiras, administra\347\343o empresarial e) Tj T* (consultoria t\351cnica.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 480.5569 cm
+Q
+q
+1 0 0 1 56.69291 378.5569 cm
+q
+.043137 .121569 .227451 rg
+n 0 102 481.8898 -102 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 16 76 cm
+q
+.788235 .635294 .152941 rg
+BT 1 0 0 1 0 4 Tm /F2 8 Tf 12 TL (QUEM SOMOS) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 14 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 48.5 Tm /F1 9.5 Tf 14.5 TL (A JM Per\355cias atua com excel\352ncia na elabora\347\343o de laudos t\351cnicos, pareceres, assist\352ncia t\351cnica) Tj T* (judicial e extrajudicial, consultoria administrativa e an\341lises financeiras. Nosso compromisso \351 oferecer) Tj T* (solu\347\365es fundamentadas, transparentes e tecnicamente consistentes para auxiliar empresas, advogados e) Tj T* (cidad\343os na tomada de decis\365es e na defesa de seus direitos.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.788235 .635294 .152941 RG
+2 w
+n 0 102 m 481.8898 102 l S
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 362.5569 cm
+Q
+q
+1 0 0 1 62.69291 350.5569 cm
+q
+.788235 .635294 .152941 rg
+BT 1 0 0 1 0 4 Tm /F2 8 Tf 12 TL (\301REAS DE COMPET\312NCIA) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 342.5569 cm
+Q
+q
+1 0 0 1 56.69291 282.5569 cm
+q
+.933333 .945098 .960784 rg
+n 0 60 481.8898 -60 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 12 39 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( Per\355cia Judicial) Tj T* ET
+Q
+Q
+q
+1 0 0 1 172.6299 39 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( Assist\352ncia T\351cnica) Tj T* ET
+Q
+Q
+q
+1 0 0 1 333.2598 39 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( Consultoria Administrativa) Tj T* ET
+Q
+Q
+q
+1 0 0 1 12 9 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( Consultoria Cont\341bil) Tj T* ET
+Q
+Q
+q
+1 0 0 1 172.6299 9 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( An\341lise Financeira) Tj T* ET
+Q
+Q
+q
+1 0 0 1 333.2598 9 cm
+q
+.043137 .121569 .227451 rg
+BT 1 0 0 1 0 3 Tm /F2 9 Tf 12 TL /F3 9 Tf 12 TL (3) Tj /F2 9 Tf 12 TL ( Laudos e Pareceres) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.847059 .870588 .901961 RG
+.6 w
+n 0 60 m 481.8898 60 l S
+n 0 0 m 481.8898 0 l S
+n 0 0 m 0 60 l S
+n 481.8898 0 m 481.8898 60 l S
+1 1 1 RG
+n 0 30 m 481.8898 30 l S
+n 160.6299 0 m 160.6299 60 l S
+n 321.2598 0 m 321.2598 60 l S
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 282.5569 cm
+Q
+q
+1 0 0 1 62.69291 282.5569 cm
+Q
+ 
