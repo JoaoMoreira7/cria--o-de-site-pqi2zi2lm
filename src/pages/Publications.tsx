@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   Phone,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function Publications() {
   const temasFuturos = [

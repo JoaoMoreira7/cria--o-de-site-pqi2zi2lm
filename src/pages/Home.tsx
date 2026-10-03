@@ -25,7 +25,6 @@ import {
 import { PhotoFrame } from '../components/PhotoFrame'
 import {
   PUBLIC_BRAND_NAME,
-  LEGAL_NAME,
   CONTACT_WHATSAPP_DISPLAY,
   CONTACT_EMAIL,
   CONTACT_EMAIL_LINK,
@@ -162,9 +161,8 @@ export default function Home() {
 
               {/* Legal identity subtitle */}
               <div className="pt-3 text-xs text-slate-400">
-                Nome civil e formal:{' '}
-                <span className="text-slate-200 font-medium">{LEGAL_NAME}</span> · Cadastrado como
-                Perito no TJMG.
+                <span className="text-slate-200 font-medium">João Moreira — Perito Judicial</span> ·
+                Cadastrado no TJMG.
               </div>
             </div>
 
@@ -389,7 +387,6 @@ export default function Home() {
 
                 <div className="pt-4 border-t border-[#1A3868] text-xs text-slate-300 space-y-1">
                   <div className="font-bold text-white text-sm">{PUBLIC_BRAND_NAME}</div>
-                  <div>Razão formal: {LEGAL_NAME}</div>
                   <div className="text-[#C9A227]">Perito Judicial · Atuação em todo o Brasil</div>
                 </div>
 

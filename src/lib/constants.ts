@@ -4,7 +4,7 @@ export const CONTACT_EMAIL = 'joaomoreiraperito@gmail.com'
 export const CONTACT_EMAIL_LINK = `mailto:${CONTACT_EMAIL}`
 
 export const PUBLIC_BRAND_NAME = 'JOÃO MOREIRA'
-export const LEGAL_NAME = 'João Carlos Moreira Santos'
+export const LEGAL_NAME = 'João Moreira'
 
 /**
  * Gera URL do WhatsApp com mensagem pré-preenchida contextual

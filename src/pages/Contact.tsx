@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 import {
   PUBLIC_BRAND_NAME,
-  LEGAL_NAME,
   CONTACT_WHATSAPP_DISPLAY,
   CONTACT_WHATSAPP_RAW,
   CONTACT_EMAIL,
@@ -200,17 +199,18 @@ ${formData.mensagem}`
                 </div>
               </div>
 
-              {/* Dados Formais e Registro */}
+              {/* Dados e Registro */}
               <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-1">
                 <div>
-                  <strong>Marca Pública:</strong> {PUBLIC_BRAND_NAME}
-                </div>
-                <div>
-                  <strong>Razão Social / Dados Formais:</strong> {LEGAL_NAME}
+                  <strong>Profissional:</strong> {PUBLIC_BRAND_NAME}
                 </div>
                 <div>
                   <strong>Credenciamento:</strong> Perito Judicial junto ao Tribunal de Justiça de
                   Minas Gerais (TJMG).
+                </div>
+                <div>
+                  <strong>Atuação:</strong> Perícia Judicial, Assistência Técnica, Cálculos e
+                  Consultoria.
                 </div>
               </div>
             </div>
@@ -372,9 +372,7 @@ ${formData.mensagem}`
           <p className="font-serif text-2xl sm:text-4xl font-semibold text-[#F2E5B5] italic leading-relaxed">
             “Conhecimento para entender. Experiência para analisar. Tecnologia para transformar.”
           </p>
-          <div className="text-xs text-slate-400">
-            {PUBLIC_BRAND_NAME} ({LEGAL_NAME}) · Perito Judicial TJMG
-          </div>
+          <div className="text-xs text-slate-400">{PUBLIC_BRAND_NAME} · Perito Judicial TJMG</div>
         </div>
       </section>
     </div>

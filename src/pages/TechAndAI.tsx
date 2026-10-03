@@ -16,7 +16,7 @@ import {
   Workflow,
   Binary,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function TechAndAI() {
   // Projetos envolvem (10 itens verbatim do pedido)

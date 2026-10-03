@@ -13,7 +13,7 @@ import {
   Scale,
   Briefcase,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function TechnicalAssistance() {
   // 9 áreas de apoio verbatim do pedido

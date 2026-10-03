@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   Code2,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function Projects() {
   // 6 Cards de Projetos verbatim do pedido

@@ -14,7 +14,7 @@ import {
   Layers,
   ArrowRight,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function Consulting() {
   // 10 áreas de atuação da consultoria verbatim do pedido

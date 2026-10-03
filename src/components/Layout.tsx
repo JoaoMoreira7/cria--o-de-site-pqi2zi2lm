@@ -23,7 +23,6 @@ import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_LINK,
   PUBLIC_BRAND_NAME,
-  LEGAL_NAME,
   NAV_LINKS,
   getWhatsAppLink,
 } from '../lib/constants'
@@ -340,7 +339,7 @@ export default function Layout({ children }: LayoutProps) {
               </Link>
 
               <div className="text-[11px] text-center text-slate-400">
-                {LEGAL_NAME} · Perito TJMG
+                {PUBLIC_BRAND_NAME} · Perito TJMG
               </div>
             </div>
           </div>
@@ -376,11 +375,9 @@ export default function Layout({ children }: LayoutProps) {
               </p>
 
               <div className="p-3.5 rounded-xl bg-[#06132B]/80 border border-[#1E3A68] text-xs text-slate-300 space-y-1">
-                <div className="text-white font-semibold">Razão Social / Dados Formais:</div>
-                <div className="text-slate-300">{LEGAL_NAME}</div>
-                <div className="text-[#DEC05B] text-[11px]">
-                  Perito Judicial credenciado junto ao TJMG
-                </div>
+                <div className="text-white font-semibold">Credenciamento Oficial:</div>
+                <div className="text-slate-300">Perito Judicial junto ao TJMG</div>
+                <div className="text-[#DEC05B] text-[11px]">Atuação em todo o Brasil</div>
               </div>
 
               <div className="pt-1">
@@ -535,8 +532,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="mt-12 pt-8 border-t border-[#1A3868]/70 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
             <div>
               <p>
-                © {new Date().getFullYear()} {PUBLIC_BRAND_NAME}. Marca pessoal de {LEGAL_NAME}.
-                Todos os direitos reservados.
+                © {new Date().getFullYear()} {PUBLIC_BRAND_NAME}. Todos os direitos reservados.
               </p>
               <p className="mt-1 text-slate-400 text-[11px]">
                 Privacidade preservada: Atuação pautada pelo sigilo profissional e pela legislação

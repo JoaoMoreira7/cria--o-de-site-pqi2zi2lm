@@ -14,7 +14,7 @@ import {
   Layers,
   ArrowRight,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function Calculations() {
   // 4 Áreas de cálculos verbatim do pedido

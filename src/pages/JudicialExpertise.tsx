@@ -14,7 +14,7 @@ import {
   ChevronRight,
   Sparkles,
 } from 'lucide-react'
-import { PUBLIC_BRAND_NAME, LEGAL_NAME, getWhatsAppLink } from '../lib/constants'
+import { PUBLIC_BRAND_NAME, getWhatsAppLink } from '../lib/constants'
 
 export default function JudicialExpertise() {
   // Lista de 10 serviços verbatim do pedido
@@ -182,7 +182,7 @@ export default function JudicialExpertise() {
 
                 <div className="text-xs text-slate-300 space-y-2">
                   <p>
-                    <strong>Perito:</strong> {PUBLIC_BRAND_NAME} ({LEGAL_NAME})
+                    <strong>Perito:</strong> {PUBLIC_BRAND_NAME}
                   </p>
                   <p>
                     <strong>Compromisso de Imparcialidade:</strong> Laudos isentos,

@@ -20,7 +20,6 @@ import {
 import { PhotoFrame } from '../components/PhotoFrame'
 import {
   PUBLIC_BRAND_NAME,
-  LEGAL_NAME,
   CONTACT_WHATSAPP_DISPLAY,
   CONTACT_EMAIL,
   getWhatsAppLink,
@@ -176,7 +175,7 @@ export default function About() {
 
               <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-[#C9A227] space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed">
                 <p>
-                  <strong>{LEGAL_NAME}</strong> construiu sua trajetória profissional unindo áreas
+                  <strong>João Moreira</strong> construiu sua trajetória profissional unindo áreas
                   que normalmente são tratadas separadamente:
                 </p>
 
@@ -192,8 +191,8 @@ export default function About() {
               </div>
 
               <div className="text-sm text-slate-600">
-                <strong>Nome formal:</strong> {LEGAL_NAME} ·{' '}
-                <strong>Comunicação e marca pública:</strong> {PUBLIC_BRAND_NAME}.
+                <strong>Atuação profissional:</strong> João Moreira · Perito Judicial credenciado
+                junto ao TJMG.
               </div>
 
               <div className="pt-2 flex flex-wrap gap-3">
