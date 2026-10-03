@@ -158,6 +158,7 @@ export default function About() {
             <div className="lg:col-span-5 flex justify-center">
               <div className="w-full max-w-sm sm:max-w-md">
                 <PhotoFrame
+                  priority
                   caption={`${PUBLIC_BRAND_NAME} — Perito Judicial credenciado junto ao TJMG`}
                 />
               </div>

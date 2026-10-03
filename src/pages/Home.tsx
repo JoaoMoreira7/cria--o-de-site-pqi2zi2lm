@@ -171,7 +171,10 @@ export default function Home() {
             {/* Right Col: Elegante Retrato com Moldura Dourada */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="w-full max-w-sm sm:max-w-md">
-                <PhotoFrame caption="Retrato oficial de João Moreira — Perito e Especialista" />
+                <PhotoFrame
+                  priority
+                  caption="Retrato oficial de João Moreira — Perito e Especialista"
+                />
               </div>
             </div>
           </div>

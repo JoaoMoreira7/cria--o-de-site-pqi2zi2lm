@@ -1,6 +1,0 @@
-Found 1 image occurrences:
-
-#1: 4 0 obj | 410x785 | filter: [ /ASCII85Decode /DCTDecode ] | streamLen: 102125
-Dict:  << /BitsPerComponent 8 /ColorSpace /DeviceRGB /Filter [ /ASCII85Decode /DCTDecode ] /Height 785 /Length 102125 /Subtype /Image /Type /XObject /Width 
-Start: "s4IA0!\"_al8O`[\\!<<*#!!*'\"s4[N@!!<9(!WiE*!WiE*!s8W."
-Wrote extracted-images/img_1_410x785.jpg (81701 bytes, format: jpg)
