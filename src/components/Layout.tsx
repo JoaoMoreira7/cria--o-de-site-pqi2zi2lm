@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
   Phone,
   Mail,
@@ -10,28 +11,44 @@ import {
   ArrowUp,
   MapPin,
   Clock,
+  Cpu,
+  Calculator,
+  Briefcase,
+  FileText,
+  User,
+  Sparkles,
 } from 'lucide-react'
+import {
+  CONTACT_WHATSAPP_DISPLAY,
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_LINK,
+  PUBLIC_BRAND_NAME,
+  LEGAL_NAME,
+  NAV_LINKS,
+  getWhatsAppLink,
+} from '../lib/constants'
 
 interface LayoutProps {
   children?: React.ReactNode
 }
 
-export const CONTACT_WHATSAPP_RAW = '5535988461481'
-export const CONTACT_WHATSAPP_DISPLAY = '(35) 98846-1481'
-export const CONTACT_WHATSAPP_LINK = 'https://wa.me/5535988461481'
-export const CONTACT_EMAIL = 'joaomoreiraperito@gmail.com'
-export const CONTACT_EMAIL_LINK = 'mailto:joaomoreiraperito@gmail.com'
-
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const location = useLocation()
+
+  // Always scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    setMobileMenuOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY
-      setIsScrolled(scrollPos > 50)
-      setShowScrollTop(scrollPos > 400)
+      setIsScrolled(scrollPos > 40)
+      setShowScrollTop(scrollPos > 350)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -50,32 +67,6 @@ export default function Layout({ children }: LayoutProps) {
     }
   }, [mobileMenuOpen])
 
-  const navLinks = [
-    { label: 'Início', href: '#inicio' },
-    { label: 'Quem Somos', href: '#quem-somos' },
-    { label: 'Competências', href: '#competencias' },
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Diferenciais', href: '#diferenciais' },
-    { label: 'Áreas de Atuação', href: '#areas-de-atuacao' },
-    { label: 'Contato', href: '#contato' },
-  ]
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    setMobileMenuOpen(false)
-    const target = document.querySelector(href)
-    if (target) {
-      const headerOffset = 88
-      const elementPosition = target.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
-    }
-  }
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -84,22 +75,24 @@ export default function Layout({ children }: LayoutProps) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#F8FAFC] text-slate-800 antialiased selection:bg-[#C9A227] selection:text-white">
+    <div className="flex min-h-screen flex-col bg-[#F8FAFC] text-slate-800 antialiased selection:bg-[#C9A227] selection:text-[#0A1F44]">
       {/* Top Notification / Contact Bar */}
-      <div className="bg-[#06132B] text-slate-300 text-xs sm:text-sm py-2 px-4 border-b border-[#1E3A68]/40 transition-colors">
+      <div className="bg-[#06132B] text-slate-300 text-xs py-2 px-4 border-b border-[#1E3A68]/50 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2 text-slate-300">
             <span className="inline-flex items-center justify-center w-2 h-2 rounded-full bg-[#C9A227] animate-pulse mr-1" />
-            <span className="font-medium tracking-wide">Atuação em todo o Brasil · desde 2019</span>
+            <span className="font-medium tracking-wide">
+              {PUBLIC_BRAND_NAME} — Atuação profissional em todo o Brasil
+            </span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 sm:gap-6">
             <a
-              href={CONTACT_WHATSAPP_LINK}
+              href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 hover:text-[#C9A227] transition-colors font-medium"
-              title="Atendimento via WhatsApp"
+              title="Atendimento via WhatsApp com João Moreira"
             >
               <Phone className="w-3.5 h-3.5 text-[#25D366]" />
               <span>{CONTACT_WHATSAPP_DISPLAY}</span>
@@ -108,7 +101,7 @@ export default function Layout({ children }: LayoutProps) {
             <a
               href={CONTACT_EMAIL_LINK}
               className="hidden md:inline-flex items-center gap-1.5 hover:text-[#C9A227] transition-colors"
-              title="Enviar e-mail para JM Perícias"
+              title="Enviar e-mail para João Moreira"
             >
               <Mail className="w-3.5 h-3.5 text-[#C9A227]" />
               <span>{CONTACT_EMAIL}</span>
@@ -121,66 +114,130 @@ export default function Layout({ children }: LayoutProps) {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0A1F44]/95 backdrop-blur-md shadow-xl border-b border-[#1A3868]/60 py-3'
-            : 'bg-[#0A1F44] py-4 border-b border-[#1A3868]/30'
+            ? 'bg-[#0A1F44]/95 backdrop-blur-md shadow-xl border-b border-[#1A3868]/70 py-2.5'
+            : 'bg-[#0A1F44] py-3.5 border-b border-[#1A3868]/40'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a
-            href="#inicio"
-            onClick={(e) => handleNavClick(e, '#inicio')}
+          {/* Brand Logo - Nova marca pública JOÃO MOREIRA */}
+          <Link
+            to="/"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] rounded-md py-1"
-            aria-label="JM Perícias Técnicas - Página Inicial"
+            aria-label={`${PUBLIC_BRAND_NAME} - Página Inicial`}
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#102A5C] to-[#0A1F44] border border-[#C9A227]/40 flex items-center justify-center shadow-md group-hover:border-[#C9A227] transition-all">
-              <Scale className="w-5 h-5 text-[#C9A227] transition-transform group-hover:scale-110" />
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#102A5C] via-[#0A1F44] to-[#06132B] border border-[#C9A227]/50 flex items-center justify-center shadow-md group-hover:border-[#C9A227] transition-all">
+              <span className="font-serif font-black text-[#C9A227] text-base tracking-tighter group-hover:scale-110 transition-transform">
+                JM
+              </span>
             </div>
             <div className="flex flex-col text-left">
               <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white leading-none group-hover:text-[#F2E5B5] transition-colors">
-                JM PERÍCIAS
+                {PUBLIC_BRAND_NAME}
               </span>
-              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] text-[#C9A227] uppercase leading-tight mt-1">
-                TÉCNICAS
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#C9A227] uppercase leading-tight mt-1">
+                Perícia · Consultoria · Tecnologia
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-slate-200 hover:text-[#C9A227] transition-colors relative py-1 focus:outline-none focus-visible:text-[#C9A227]"
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-6">
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-xs 2xl:text-sm font-medium transition-colors relative py-1 focus:outline-none focus-visible:text-[#C9A227] ${
+                    isActive
+                      ? 'text-[#C9A227] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#C9A227] after:rounded-full'
+                      : 'text-slate-200 hover:text-[#C9A227]'
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
+          </nav>
+
+          {/* Medium screen Nav (collapsed key links) */}
+          <nav className="hidden lg:flex xl:hidden items-center gap-4">
+            <NavLink
+              to="/sobre"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Sobre
+            </NavLink>
+            <NavLink
+              to="/pericia-judicial"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Perícia
+            </NavLink>
+            <NavLink
+              to="/assistencia-tecnica"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Assistência
+            </NavLink>
+            <NavLink
+              to="/calculos"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Cálculos
+            </NavLink>
+            <NavLink
+              to="/consultoria"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Consultoria
+            </NavLink>
+            <NavLink
+              to="/tecnologia-ia"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Tecnologia & IA
+            </NavLink>
+            <NavLink
+              to="/projetos"
+              className={({ isActive }) =>
+                `text-xs font-medium ${isActive ? 'text-[#C9A227]' : 'text-slate-200 hover:text-[#C9A227]'}`
+              }
+            >
+              Projetos
+            </NavLink>
           </nav>
 
           {/* Header Action CTA */}
           <div className="hidden sm:flex items-center gap-3">
-            <a
-              href="#contato"
-              onClick={(e) => handleNavClick(e, '#contato')}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] to-[#C9A227] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+            <Link
+              to="/contato"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] via-[#C9A227] to-[#B08B1B] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Solicitar Avaliação</span>
+              <span>Fale Comigo</span>
               <ChevronRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Hamburger Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
-            <a
-              href="#contato"
-              onClick={(e) => handleNavClick(e, '#contato')}
-              className="sm:hidden px-3 py-1.5 rounded-md text-xs font-semibold text-[#0A1F44] bg-[#C9A227]"
+            <Link
+              to="/contato"
+              className="sm:hidden px-3 py-1.5 rounded-md text-xs font-bold text-[#0A1F44] bg-[#C9A227]"
             >
-              Avaliação
-            </a>
+              Contato
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -199,25 +256,25 @@ export default function Layout({ children }: LayoutProps) {
         <div className="fixed inset-0 z-50 lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
 
           {/* Drawer content */}
-          <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-[#0A1F44] text-white p-6 shadow-2xl flex flex-col justify-between border-l border-[#1A3868] animate-in slide-in-from-right duration-300">
+          <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#0A1F44] text-white p-6 shadow-2xl flex flex-col justify-between border-l border-[#1A3868] animate-in slide-in-from-right duration-300 overflow-y-auto">
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-[#1A3868]">
+              <div className="flex items-center justify-between pb-5 border-b border-[#1A3868]">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-lg bg-[#102A5C] border border-[#C9A227]/40 flex items-center justify-center">
-                    <Scale className="w-4 h-4 text-[#C9A227]" />
+                    <span className="font-serif font-black text-[#C9A227] text-sm">JM</span>
                   </div>
                   <div>
                     <span className="font-serif text-base font-bold text-white block">
-                      JM PERÍCIAS
+                      {PUBLIC_BRAND_NAME}
                     </span>
-                    <span className="text-[9px] tracking-[0.3em] text-[#C9A227] font-semibold block">
-                      TÉCNICAS
+                    <span className="text-[9px] tracking-[0.2em] text-[#C9A227] font-semibold block">
+                      Perícia · Consultoria · Tecnologia
                     </span>
                   </div>
                 </div>
@@ -232,26 +289,32 @@ export default function Layout({ children }: LayoutProps) {
               </div>
 
               {/* Navigation links */}
-              <nav className="mt-6 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-200 hover:text-[#C9A227] hover:bg-[#102A5C] font-medium text-base transition-colors"
+              <nav className="mt-4 flex flex-col gap-1">
+                {NAV_LINKS.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-3.5 py-2.5 rounded-lg font-medium text-sm transition-colors ${
+                        isActive
+                          ? 'bg-[#102A5C] text-[#C9A227] font-bold border-l-4 border-[#C9A227]'
+                          : 'text-slate-200 hover:text-[#C9A227] hover:bg-[#102A5C]/60'
+                      }`
+                    }
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
-                  </a>
+                  </NavLink>
                 ))}
               </nav>
             </div>
 
             {/* Mobile Drawer Bottom Info */}
-            <div className="pt-6 border-t border-[#1A3868] flex flex-col gap-4">
+            <div className="pt-6 border-t border-[#1A3868] flex flex-col gap-3 mt-6">
               <div className="space-y-2 text-xs text-slate-300">
                 <a
-                  href={CONTACT_WHATSAPP_LINK}
+                  href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 p-2 rounded-lg bg-[#102A5C] hover:bg-[#163878] transition-colors"
@@ -268,117 +331,174 @@ export default function Layout({ children }: LayoutProps) {
                 </a>
               </div>
 
-              <a
-                href="#contato"
-                onClick={(e) => handleNavClick(e, '#contato')}
-                className="w-full text-center py-3 rounded-lg font-semibold text-[#0A1F44] bg-[#C9A227] hover:bg-[#DEC05B] shadow-md transition-colors"
+              <Link
+                to="/contato"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-3 rounded-lg font-bold text-sm text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] to-[#C9A227] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-md transition-colors"
               >
-                Solicitar Avaliação
-              </a>
+                Fale Comigo
+              </Link>
 
               <div className="text-[11px] text-center text-slate-400">
-                João Carlos Moreira Santos · TJMG / TJSP
+                {LEGAL_NAME} · Perito TJMG
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Main Content */}
+      {/* Main Page Content */}
       <main className="flex-1">{children}</main>
 
-      {/* Footer */}
+      {/* Site Footer */}
       <footer className="bg-[#0A1F44] text-white border-t border-[#1A3868] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {/* Col 1: Brand & Credentials */}
-            <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+            {/* Col 1 & 2: Brand & Positioning */}
+            <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#102A5C] border border-[#C9A227]/40 flex items-center justify-center">
-                  <Scale className="w-5 h-5 text-[#C9A227]" />
+                  <span className="font-serif font-black text-[#C9A227] text-base">JM</span>
                 </div>
                 <div>
                   <span className="font-serif text-xl font-bold tracking-tight text-white block">
-                    JM PERÍCIAS
+                    {PUBLIC_BRAND_NAME}
                   </span>
-                  <span className="text-[11px] font-semibold tracking-[0.32em] text-[#C9A227] uppercase block">
-                    TÉCNICAS
+                  <span className="text-[10px] font-semibold tracking-[0.25em] text-[#C9A227] uppercase block">
+                    Perícia · Consultoria · Tecnologia
                   </span>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Perícia Judicial · Assistência Técnica · Consultoria Administrativa · Contábil ·
-                Análise Financeira.
+              <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
+                Conhecimento técnico. Tecnologia. Soluções para problemas complexos. Atuação
+                profissional em todo o Brasil.
               </p>
 
-              <div className="pt-2">
+              <div className="p-3.5 rounded-xl bg-[#06132B]/80 border border-[#1E3A68] text-xs text-slate-300 space-y-1">
+                <div className="text-white font-semibold">Razão Social / Dados Formais:</div>
+                <div className="text-slate-300">{LEGAL_NAME}</div>
+                <div className="text-[#DEC05B] text-[11px]">
+                  Perito Judicial credenciado junto ao TJMG
+                </div>
+              </div>
+
+              <div className="pt-1">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#102A5C] border border-[#C9A227]/30 text-xs text-slate-200">
                   <ShieldCheck className="w-4 h-4 text-[#C9A227]" />
-                  <span>Perito nomeado · TJMG / TJSP</span>
+                  <span>Sigilo rigoroso & Independência técnica</span>
                 </div>
               </div>
             </div>
 
-            {/* Col 2: Perito & Qualificação */}
-            <div className="space-y-4">
-              <h3 className="font-serif text-base font-semibold text-[#C9A227] tracking-wider uppercase">
-                Perito Responsável
+            {/* Col 3: Serviços e Atuação */}
+            <div className="space-y-3">
+              <h3 className="font-serif text-sm font-semibold text-[#C9A227] tracking-wider uppercase">
+                Atuação Técnica
               </h3>
-              <p className="text-sm font-semibold text-white">João Carlos Moreira Santos</p>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Perito Judicial · Consultor Administrativo e Contábil. Atuação técnica, imparcial e
-                fundamentada para empresas, pessoas físicas e tribunais.
-              </p>
-              <div className="text-xs text-slate-400 space-y-1">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#C9A227]" />
-                  <span>Atendimento em todo o Brasil (100% online)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5 text-[#C9A227]" />
-                  <span>Atuação profissional desde 2019</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Col 3: Navegação Rápida */}
-            <div className="space-y-4">
-              <h3 className="font-serif text-base font-semibold text-[#C9A227] tracking-wider uppercase">
-                Navegação
-              </h3>
-              <ul className="space-y-2 text-sm text-slate-300">
-                {navLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
-                    >
-                      <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
-                      <span>{link.label}</span>
-                    </a>
-                  </li>
-                ))}
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li>
+                  <Link
+                    to="/pericia-judicial"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Perícia Judicial</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/assistencia-tecnica"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Assistência Técnica</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/calculos"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Cálculos Judiciais</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/consultoria"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Consultoria Especializada</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
-            {/* Col 4: Contato Direto */}
-            <div className="space-y-4">
-              <h3 className="font-serif text-base font-semibold text-[#C9A227] tracking-wider uppercase">
+            {/* Col 4: Tecnologia & Projetos */}
+            <div className="space-y-3">
+              <h3 className="font-serif text-sm font-semibold text-[#C9A227] tracking-wider uppercase">
+                Inovação & Soluções
+              </h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li>
+                  <Link
+                    to="/tecnologia-ia"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Tecnologia & IA</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/projetos"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Projetos & SaaS</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/sobre"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Sobre João Moreira</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/publicacoes"
+                    className="hover:text-[#C9A227] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-[#C9A227]/60" />
+                    <span>Publicações & Artigos</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 5: Contato Direto */}
+            <div className="space-y-3">
+              <h3 className="font-serif text-sm font-semibold text-[#C9A227] tracking-wider uppercase">
                 Canais de Atendimento
               </h3>
-              <div className="space-y-3 text-sm">
+              <div className="space-y-2.5 text-xs sm:text-sm">
                 <a
-                  href={CONTACT_WHATSAPP_LINK}
+                  href={getWhatsAppLink(
+                    'Olá João, gostaria de solicitar uma avaliação do meu caso.',
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
+                  className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
                 >
-                  <Phone className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
+                  <Phone className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-400 block">WhatsApp Direto</span>
-                    <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors">
+                    <span className="text-[11px] text-slate-400 block">WhatsApp</span>
+                    <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors text-xs">
                       {CONTACT_WHATSAPP_DISPLAY}
                     </span>
                   </div>
@@ -386,16 +506,27 @@ export default function Layout({ children }: LayoutProps) {
 
                 <a
                   href={CONTACT_EMAIL_LINK}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
+                  className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
                 >
-                  <Mail className="w-5 h-5 text-[#C9A227] shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-[#C9A227] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-400 block">E-mail Institucional</span>
-                    <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors text-xs sm:text-sm break-all">
+                    <span className="text-[11px] text-slate-400 block">E-mail</span>
+                    <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors text-xs break-all">
                       {CONTACT_EMAIL}
                     </span>
                   </div>
                 </a>
+
+                <div className="pt-2 text-slate-400 text-[11px] space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3 text-[#C9A227]" />
+                    <span>Atuação em todo o Brasil (100% online)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock className="w-3 h-3 text-[#C9A227]" />
+                    <span>+20 anos de trajetória profissional</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -403,16 +534,33 @@ export default function Layout({ children }: LayoutProps) {
           {/* Bottom Copyright and Legal Disclaimers */}
           <div className="mt-12 pt-8 border-t border-[#1A3868]/70 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
             <div>
-              <p>© 2025 JM Perícias Técnicas. Todos os direitos reservados.</p>
-              <p className="mt-1 text-slate-400">
-                JM Perícias — Documento institucional. As informações refletem a atuação
-                profissional na data de emissão.
+              <p>
+                © {new Date().getFullYear()} {PUBLIC_BRAND_NAME}. Marca pessoal de {LEGAL_NAME}.
+                Todos os direitos reservados.
+              </p>
+              <p className="mt-1 text-slate-400 text-[11px]">
+                Privacidade preservada: Atuação pautada pelo sigilo profissional e pela legislação
+                processual civil e penal vigente.
               </p>
             </div>
-            <div className="text-slate-400">Perito Judicial · João Carlos Moreira Santos</div>
+            <div className="text-slate-400 text-[11px]">
+              Perito Judicial credenciado junto ao Tribunal de Justiça de Minas Gerais (TJMG).
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Action Button */}
+      <a
+        href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-20 sm:right-24 z-30 flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all text-xs font-bold"
+        title="Falar com João Moreira no WhatsApp"
+      >
+        <Phone className="w-4 h-4 fill-white" />
+        <span className="hidden sm:inline">WhatsApp</span>
+      </a>
 
       {/* Floating Scroll-to-Top Button */}
       {showScrollTop && (
