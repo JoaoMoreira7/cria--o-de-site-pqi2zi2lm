@@ -2,6 +2,8 @@ export const CONTACT_WHATSAPP_RAW = '5535988461481'
 export const CONTACT_WHATSAPP_DISPLAY = '(35) 98846-1481'
 export const CONTACT_EMAIL = 'joaomoreiraperito@gmail.com'
 export const CONTACT_EMAIL_LINK = `mailto:${CONTACT_EMAIL}`
+export const CONTACT_INSTAGRAM_HANDLE = '@joaomoreiraperito'
+export const CONTACT_INSTAGRAM_URL = 'https://instagram.com/joaomoreiraperito'
 
 export const PUBLIC_BRAND_NAME = 'JOÃO MOREIRA'
 export const LEGAL_NAME = 'João Moreira'

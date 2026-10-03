@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
   Phone,
   Mail,
+  Instagram,
   Scale,
   Menu,
   X,
@@ -22,6 +23,8 @@ import {
   CONTACT_WHATSAPP_DISPLAY,
   CONTACT_EMAIL,
   CONTACT_EMAIL_LINK,
+  CONTACT_INSTAGRAM_HANDLE,
+  CONTACT_INSTAGRAM_URL,
   PUBLIC_BRAND_NAME,
   NAV_LINKS,
   getWhatsAppLink,
@@ -85,7 +88,7 @@ export default function Layout({ children }: LayoutProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-5 sm:gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <a
               href={getWhatsAppLink('Olá João Moreira, gostaria de falar sobre um caso.')}
               target="_blank"
@@ -104,6 +107,17 @@ export default function Layout({ children }: LayoutProps) {
             >
               <Mail className="w-3.5 h-3.5 text-[#C9A227]" />
               <span>{CONTACT_EMAIL}</span>
+            </a>
+
+            <a
+              href={CONTACT_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-[#C9A227] transition-colors"
+              title="Perfil oficial no Instagram: @joaomoreiraperito"
+            >
+              <Instagram className="w-3.5 h-3.5 text-[#E4405F]" />
+              <span>{CONTACT_INSTAGRAM_HANDLE}</span>
             </a>
           </div>
         </div>
@@ -328,6 +342,15 @@ export default function Layout({ children }: LayoutProps) {
                   <Mail className="w-4 h-4 text-[#C9A227]" />
                   <span className="truncate">{CONTACT_EMAIL}</span>
                 </a>
+                <a
+                  href={CONTACT_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-2 rounded-lg bg-[#102A5C] hover:bg-[#163878] transition-colors"
+                >
+                  <Instagram className="w-4 h-4 text-[#E4405F]" />
+                  <span>{CONTACT_INSTAGRAM_HANDLE}</span>
+                </a>
               </div>
 
               <Link
@@ -510,6 +533,21 @@ export default function Layout({ children }: LayoutProps) {
                     <span className="text-[11px] text-slate-400 block">E-mail</span>
                     <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors text-xs break-all">
                       {CONTACT_EMAIL}
+                    </span>
+                  </div>
+                </a>
+
+                <a
+                  href={CONTACT_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#102A5C]/80 hover:bg-[#163878] border border-[#1A3868] transition-colors group"
+                >
+                  <Instagram className="w-4 h-4 text-[#E4405F] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[11px] text-slate-400 block">Instagram</span>
+                    <span className="font-medium text-white group-hover:text-[#C9A227] transition-colors text-xs">
+                      {CONTACT_INSTAGRAM_HANDLE}
                     </span>
                   </div>
                 </a>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
   Phone,
   Mail,
+  Instagram,
   Scale,
   ShieldCheck,
   Send,
@@ -19,6 +20,8 @@ import {
   CONTACT_WHATSAPP_RAW,
   CONTACT_EMAIL,
   CONTACT_EMAIL_LINK,
+  CONTACT_INSTAGRAM_HANDLE,
+  CONTACT_INSTAGRAM_URL,
   getWhatsAppLink,
 } from '../lib/constants'
 
@@ -152,6 +155,29 @@ ${formData.mensagem}`
                       </span>
                       <span className="font-serif font-bold text-base block">
                         SOLICITAR ORÇAMENTO
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-[#C9A227]" />
+                </a>
+
+                {/* Botão / Cartão: Instagram Oficial */}
+                <a
+                  href={CONTACT_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-[#102A5C] via-[#0A1F44] to-[#102A5C] hover:from-[#163878] hover:to-[#163878] text-white border border-[#C9A227]/40 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#833AB4] flex items-center justify-center shadow-sm">
+                      <Instagram className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#DEC05B] block">
+                        Instagram Oficial
+                      </span>
+                      <span className="font-serif font-bold text-base block text-white">
+                        {CONTACT_INSTAGRAM_HANDLE}
                       </span>
                     </div>
                   </div>
