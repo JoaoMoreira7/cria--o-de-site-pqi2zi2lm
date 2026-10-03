@@ -1,5 +1,6 @@
 import React from 'react'
 import { Award, ShieldCheck } from 'lucide-react'
+import { useProfessionalPhoto } from '../hooks/use-professional-photo'
 
 interface PhotoFrameProps {
   className?: string
@@ -9,12 +10,15 @@ interface PhotoFrameProps {
 
 /**
  * Retrato institucional elegante de João Moreira com detalhes dourados refinados,
- * badges profissionais e suporte a fallback gracioso.
+ * badges profissionais e a foto fotográfica real extraída do documento oficial,
+ * com fallback sóbrio e elegante caso o recurso esteja carregando.
  */
 export const PhotoFrame: React.FC<PhotoFrameProps> = ({
   className = '',
   caption = 'João Moreira · Perito Judicial & Especialista Técnico',
 }) => {
+  const photoSrc = useProfessionalPhoto()
+
   return (
     <div className={`relative group ${className}`}>
       {/* Outer ambient glow and decorative geometry */}
@@ -30,12 +34,32 @@ export const PhotoFrame: React.FC<PhotoFrameProps> = ({
 
         {/* Image wrapper */}
         <div className="relative rounded-xl overflow-hidden bg-[#0A1F44] aspect-[4/5] sm:aspect-[3/4] flex items-center justify-center">
-          <img
-            src="https://img.usecurling.com/ppl/large?gender=male&seed=48"
-            alt="João Moreira — Perito Judicial, Consultor e Especialista Técnico"
-            className="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[0.98] transition-transform duration-700 group-hover:scale-[1.03]"
-            loading="eager"
-          />
+          {photoSrc ? (
+            <img
+              src={photoSrc}
+              alt="João Moreira — Perito Judicial, Consultor e Especialista Técnico"
+              className="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[0.98] transition-transform duration-700 group-hover:scale-[1.03]"
+              loading="eager"
+            />
+          ) : (
+            /* Fallback elegante e sóbrio com monograma JM em dourado sobre fundo azul marinho */
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#102A5C] via-[#0A1F44] to-[#06132B] p-6 text-center select-none">
+              <div className="relative mb-3 flex items-center justify-center">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#C9A227]/70 bg-[#0A1F44]/90 flex items-center justify-center shadow-inner">
+                  <span className="font-serif text-3xl sm:text-4xl font-bold tracking-wider text-[#C9A227]">
+                    JM
+                  </span>
+                </div>
+                <div className="absolute -inset-1 rounded-full border border-[#C9A227]/30 animate-pulse pointer-events-none" />
+              </div>
+              <div className="font-serif text-sm sm:text-base font-bold text-white tracking-widest uppercase">
+                João Moreira
+              </div>
+              <div className="text-[11px] text-[#C9A227] font-medium tracking-wider mt-1">
+                Perito Judicial TJMG
+              </div>
+            </div>
+          )}
 
           {/* Gradient dark scrim at the bottom */}
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0A1F44] via-[#0A1F44]/60 to-transparent pointer-events-none" />
