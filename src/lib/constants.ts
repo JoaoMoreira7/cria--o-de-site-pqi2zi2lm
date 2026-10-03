@@ -5,6 +5,9 @@ export const CONTACT_EMAIL_LINK = `mailto:${CONTACT_EMAIL}`
 export const CONTACT_INSTAGRAM_HANDLE = '@joaomoreiraperito'
 export const CONTACT_INSTAGRAM_URL = 'https://instagram.com/joaomoreiraperito'
 
+export const SITE_DOMAIN = 'joaomoreiraperito.com.br'
+export const SITE_URL = 'https://joaomoreiraperito.com.br'
+
 export const PUBLIC_BRAND_NAME = 'JOÃO MOREIRA'
 export const LEGAL_NAME = 'João Moreira'
 

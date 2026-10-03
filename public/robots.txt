@@ -1,0 +1,6 @@
+# robots.txt para https://joaomoreiraperito.com.br
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://joaomoreiraperito.com.br/sitemap.xml

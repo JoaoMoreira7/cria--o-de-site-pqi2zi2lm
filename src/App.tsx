@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import Layout from './components/Layout'
+import { useSeoUpdater } from './lib/seo'
 
 // Páginas Multi-Páginas da marca João Moreira
 import Home from './pages/Home'
@@ -18,8 +19,14 @@ import Contact from './pages/Contact'
 import Publications from './pages/Publications'
 import NotFound from './pages/NotFound'
 
+function RouteWatcher() {
+  useSeoUpdater()
+  return null
+}
+
 const App = () => (
   <BrowserRouter>
+    <RouteWatcher />
     <TooltipProvider>
       <Toaster />
       <Sonner />
