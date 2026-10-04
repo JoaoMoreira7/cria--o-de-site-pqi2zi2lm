@@ -91,16 +91,14 @@ export default function Calculations() {
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4">
-              {/* Botão CTA Verbatim */}
-              <a
-                href={getWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Botão CTA Verbatim: direciona para o formulário de orçamento detalhado */}
+              <Link
+                to="/contato#orcamento"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] via-[#C9A227] to-[#B08B1B] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-lg transition-all"
               >
                 <span>SOLICITAR ORÇAMENTO</span>
                 <ChevronRight className="w-4 h-4 text-[#0A1F44]" />
-              </a>
+              </Link>
 
               <Link
                 to="/contato"
@@ -246,15 +244,13 @@ export default function Calculations() {
             fechado.
           </p>
           <div className="pt-2">
-            <a
-              href={getWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contato#orcamento"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-[#0A1F44] bg-gradient-to-r from-[#DDB93A] to-[#C9A227] hover:from-[#F2E5B5] hover:to-[#DEC05B] shadow-xl transition-all"
             >
               <span>SOLICITAR ORÇAMENTO</span>
               <ChevronRight className="w-4 h-4 text-[#0A1F44]" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T19:28:54.844Z",
+  "generatedAt": "2026-10-04T04:18:30.649Z",
   "collections": [
     {
       "name": "users",
@@ -42,6 +42,88 @@
       "indexes": [
         "CREATE UNIQUE INDEX `idx_tokenKey__pb_users_auth_` ON `users` (`tokenKey`)",
         "CREATE UNIQUE INDEX `idx_email__pb_users_auth_` ON `users` (`email`) WHERE `email` != ''"
+      ]
+    },
+    {
+      "name": "budget_requests",
+      "type": "base",
+      "apiRules": {
+        "list": null,
+        "view": null,
+        "create": "",
+        "update": null,
+        "delete": null
+      },
+      "fields": [
+        {
+          "name": "nome",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "telefone",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "servico",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": [
+            "Perícia Judicial",
+            "Assistência Técnica",
+            "Cálculos",
+            "Consultoria",
+            "Tecnologia & IA",
+            "Outro"
+          ]
+        },
+        {
+          "name": "origem",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["Google", "Instagram", "Indicação", "Outro"]
+        },
+        {
+          "name": "descricao",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "consentimento",
+          "type": "bool",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_budget_requests_created ON budget_requests (created DESC)",
+        "CREATE INDEX idx_budget_requests_servico ON budget_requests (servico)"
       ]
     }
   ]
