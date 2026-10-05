@@ -69,6 +69,84 @@ export default function Layout({ children }: LayoutProps) {
     }
   }, [mobileMenuOpen])
 
+  // Remove any dynamic "Criado com Skip" badge/element injected into the DOM
+  useEffect(() => {
+    const removeSkipBadge = () => {
+      // 1. Target any element containing "Criado com Skip" or "Feito com Skip" or "goskip"
+      const allElements = document.querySelectorAll('body *')
+      allElements.forEach((el) => {
+        // Skip root containers or main app wrappers
+        if (
+          el.id === 'root' ||
+          el.tagName === 'BODY' ||
+          el.tagName === 'HTML' ||
+          el.tagName === 'MAIN'
+        ) {
+          return
+        }
+
+        const text = el.textContent?.trim() || ''
+        const ariaLabel = el.getAttribute('aria-label') || ''
+        const title = el.getAttribute('title') || ''
+        const href = el.getAttribute('href') || ''
+
+        const isSkipBrand =
+          text === 'Criado com o Skip' ||
+          text === 'Criado com Skip' ||
+          text === 'Feito com o Skip' ||
+          text === 'Feito com Skip' ||
+          text.includes('Criado com o Skip') ||
+          text.includes('Criado com Skip') ||
+          ariaLabel.includes('Skip') ||
+          title.includes('Skip') ||
+          href.includes('goskip.dev') ||
+          href.includes('goskip.app')
+
+        if (isSkipBrand) {
+          // If it's a floating badge container (fixed/absolute) or direct badge link/element
+          const computed = window.getComputedStyle(el)
+          if (
+            computed.position === 'fixed' ||
+            computed.position === 'absolute' ||
+            el.tagName === 'A' ||
+            el.tagName === 'IMG'
+          ) {
+            ;(el as HTMLElement).style.setProperty('display', 'none', 'important')
+            ;(el as HTMLElement).style.setProperty('visibility', 'hidden', 'important')
+            ;(el as HTMLElement).style.setProperty('opacity', '0', 'important')
+            ;(el as HTMLElement).style.setProperty('pointer-events', 'none', 'important')
+            el.remove()
+          }
+        }
+
+        // Also check if image has skip.png
+        if (el.tagName === 'IMG') {
+          const src = el.getAttribute('src') || ''
+          const alt = el.getAttribute('alt') || ''
+          if (src.includes('skip.png') || alt.toLowerCase().includes('skip')) {
+            const parent = el.parentElement
+            if (parent && (parent.tagName === 'A' || parent.tagName === 'DIV')) {
+              ;(parent as HTMLElement).style.setProperty('display', 'none', 'important')
+              parent.remove()
+            } else {
+              el.remove()
+            }
+          }
+        }
+      })
+    }
+
+    removeSkipBadge()
+    const interval = setInterval(removeSkipBadge, 500)
+    const observer = new MutationObserver(removeSkipBadge)
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      clearInterval(interval)
+      observer.disconnect()
+    }
+  }, [])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

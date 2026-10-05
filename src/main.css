@@ -117,6 +117,21 @@
     padding: 0 !important;
     margin: 0 !important;
   }
+
+  /* Ocultar badge/selo de branding Skip */
+  [data-skip-badge],
+  .skip-badge,
+  a[href*='goskip.dev']:not([data-allow-skip]),
+  a[href*='goskip.app']:not([data-allow-skip]),
+  img[src*='skip.png'],
+  img[alt*='Skip'],
+  div:has(> img[src*='skip.png']),
+  a:has(> img[src*='skip.png']) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 @layer utilities {
