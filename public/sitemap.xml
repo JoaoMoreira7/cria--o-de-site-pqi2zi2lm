@@ -59,8 +59,15 @@
   <!-- 9. Publicações & Artigos -->
   <url>
     <loc>https://joaomoreiraperito.com.br/publicacoes</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- 9.1 Artigo: O que é perícia judicial -->
+  <url>
+    <loc>https://joaomoreiraperito.com.br/publicacoes/o-que-e-pericia-judicial</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- 10. Contato / Orçamento -->

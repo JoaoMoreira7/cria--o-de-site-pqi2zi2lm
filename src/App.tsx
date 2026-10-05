@@ -17,6 +17,7 @@ import TechAndAI from './pages/TechAndAI'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import Publications from './pages/Publications'
+import ArticleDetail from './pages/ArticleDetail'
 import NotFound from './pages/NotFound'
 
 function RouteWatcher() {
@@ -67,6 +68,7 @@ const App = () => (
 
           {/* Conteúdos / Publicações */}
           <Route path="/publicacoes" element={<Publications />} />
+          <Route path="/publicacoes/:slug" element={<ArticleDetail />} />
         </Route>
 
         {/* 404 Not Found */}

@@ -80,6 +80,14 @@ export const ROUTE_SEO: Record<string, RouteSeoMetadata> = {
       'Artigos técnicos, análises práticas sobre perícia judicial, metodologia de cálculos, inteligência artificial e consultoria estratégica por João Moreira.',
     keywords:
       'Artigos Perícia Judicial, Publicações Técnicas, Jurisprudência, Metodologia de Cálculos, Artigos João Moreira',
+    ogType: 'website',
+  },
+  '/publicacoes/o-que-e-pericia-judicial': {
+    title: 'O que é perícia judicial e quando ela pode decidir um processo? | João Moreira',
+    description:
+      'Entenda o que é perícia judicial, quando o juiz determina a prova pericial, a diferença entre perito e assistente técnico e como cálculos sólidos decidem causas na Justiça.',
+    keywords:
+      'O que é perícia judicial, perito judicial, assistente técnico, laudo pericial, quesitos periciais, liquidação de sentença, TJMG, cálculos judiciais',
     ogType: 'article',
   },
   '/contato': {
