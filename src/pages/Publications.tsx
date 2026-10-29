@@ -34,38 +34,12 @@ export default function Publications() {
 
   const temasFuturos = [
     {
-      categoria: 'Perícia & Processo',
-      titulo:
-        'Boas práticas na formulação de quesitos técnicos para assistentes de acusação e defesa',
-      resumo:
-        'Como evitar quesitos impertinentes ou genéricos que enfraquecem a manifestação do assistente técnico.',
-      status: 'Em redação',
-      tempoEstimado: '6 min',
-    },
-    {
-      categoria: 'Cálculos & Finanças',
-      titulo:
-        'Impactos práticos da uniformização dos índices de correção monetária pós-decisões do STF/STJ',
-      resumo:
-        'Análise comparativa da Taxa Selic versus IPCA-E + juros moratórios na liquidação de créditos trabalhistas e cíveis.',
-      status: 'Em redação',
-      tempoEstimado: '8 min',
-    },
-    {
-      categoria: 'Tecnologia & IA',
-      titulo: 'O uso de agentes inteligentes na auditoria preliminar de documentos processuais',
-      resumo:
-        'Como a tecnologia moderna auxilia a triagem de milhares de páginas de extratos bancários sem perda de dados.',
-      status: 'Planejado',
-      tempoEstimado: '5 min',
-    },
-    {
       categoria: 'Gestão & Consultoria',
       titulo:
         'Como mapear passivos administrativos e contábeis antes que se tornem litígios judiciais',
       resumo:
         'Metodologias de conformidade prévia e auditoria preventiva para proteger o fluxo de caixa empresarial.',
-      status: 'Planejado',
+      status: 'Em redação',
       tempoEstimado: '7 min',
     },
   ]
@@ -351,6 +325,37 @@ export default function Publications() {
                 </div>
               </div>
             ))}
+
+            {/* Card de convite para sugerir novo tema técnico */}
+            <div className="p-6 rounded-2xl bg-[#0A1F44] text-white border border-[#C9A227]/30 shadow-sm flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold text-[#C9A227] uppercase tracking-wider block">
+                  Sugestão de Pauta Aberta
+                </span>
+                <h3 className="font-serif text-base font-bold text-white leading-snug">
+                  Gostaria de ver uma análise técnica sobre outro tema específico?
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  Sinta-se à vontade para enviar dúvidas do seu cotidiano forense, casos de apuração
+                  contábil ou temas controversos para os próximos artigos.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-[#1A3868] flex items-center justify-between text-xs">
+                <span className="text-slate-400">Canal direto</span>
+                <a
+                  href={getWhatsAppLink(
+                    'Olá, João Moreira! Gostaria de sugerir um tema para os artigos do seu site sobre perícia/cálculos.',
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#F2E5B5] hover:text-[#C9A227] font-semibold transition-colors"
+                >
+                  <span>Sugerir tema no WhatsApp</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

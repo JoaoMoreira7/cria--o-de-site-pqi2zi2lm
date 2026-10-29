@@ -82,6 +82,30 @@ export const ROUTE_SEO: Record<string, RouteSeoMetadata> = {
       'Artigos Perícia Judicial, Publicações Técnicas, Jurisprudência, Metodologia de Cálculos, Artigos João Moreira',
     ogType: 'website',
   },
+  '/publicacoes/quesitos-tecnicos-assistente-pericial': {
+    title: 'Boas práticas na formulação de quesitos técnicos para assistentes | João Moreira',
+    description:
+      'Aprenda como formular quesitos técnicos periciais eficazes no CPC: técnicas para evitar perguntas genéricas, quesitos suplementares, de esclarecimento e atuação do assistente técnico.',
+    keywords:
+      'formulação de quesitos, quesitos periciais, assistente técnico, perícia judicial, CPC artigo 465, quesitos suplementares, impugnação de laudo, quesitos impertinentes',
+    ogType: 'article',
+  },
+  '/publicacoes/uniformizacao-indices-correcao-monetaria-stf-stj': {
+    title: 'Impactos da uniformização dos índices de correção pós STF/STJ | João Moreira',
+    description:
+      'Entenda os impactos práticos da Taxa Selic e IPCA-E na liquidação de sentenças após decisões do STF (ADC 58, ADIs) e STJ (Tema 1.127, Corte Especial). Análise pericial de cálculos judiciais.',
+    keywords:
+      'uniformização de índices de correção monetária, taxa Selic em liquidação de sentença, STF ADC 58, STJ Tema 1127, IPCA-E e juros de mora, cálculos judiciais, correção monetária e juros',
+    ogType: 'article',
+  },
+  '/publicacoes/agentes-inteligentes-auditoria-documental-pericial': {
+    title: 'Agentes inteligentes na auditoria preliminar de documentos processuais | João Moreira',
+    description:
+      'Descubra como peritos judiciais utilizam agentes inteligentes e IA para auditar milhares de extratos bancários, contratos e documentos processuais com validação matemática e sem perda de dados.',
+    keywords:
+      'agentes inteligentes perícia judicial, IA em processos judiciais, auditoria de extratos bancários, perícia em tecnologia da informação, automação pericial, OCR forense, prova pericial e IA',
+    ogType: 'article',
+  },
   '/publicacoes/o-que-e-pericia-judicial': {
     title: 'O que é perícia judicial e quando ela pode decidir um processo? | João Moreira',
     description:

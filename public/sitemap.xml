@@ -59,11 +59,32 @@
   <!-- 9. Publicações & Artigos -->
   <url>
     <loc>https://joaomoreiraperito.com.br/publicacoes</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 9.1 Artigo: O que é perícia judicial -->
+  <!-- 9.1 Artigo: Boas práticas na formulação de quesitos técnicos -->
+  <url>
+    <loc>https://joaomoreiraperito.com.br/publicacoes/quesitos-tecnicos-assistente-pericial</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 9.2 Artigo: Uniformização de índices de correção monetária STF/STJ -->
+  <url>
+    <loc>https://joaomoreiraperito.com.br/publicacoes/uniformizacao-indices-correcao-monetaria-stf-stj</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 9.3 Artigo: Agentes inteligentes na auditoria documental pericial -->
+  <url>
+    <loc>https://joaomoreiraperito.com.br/publicacoes/agentes-inteligentes-auditoria-documental-pericial</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 9.4 Artigo: O que é perícia judicial -->
   <url>
     <loc>https://joaomoreiraperito.com.br/publicacoes/o-que-e-pericia-judicial</loc>
     <lastmod>2026-04-03</lastmod>
