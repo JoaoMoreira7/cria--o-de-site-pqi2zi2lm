@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ouro" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E8C97A"/>
+      <stop offset="0.55" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#8A6A14"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#102A5C"/>
+      <stop offset="1" stop-color="#06132B"/>
+    </linearGradient>
+  </defs>
+  <!-- Tile azul-marinho da marca -->
+  <rect width="64" height="64" rx="14" fill="url(#navy)"/>
+  <rect x="3" y="3" width="58" height="58" rx="11.5" fill="none" stroke="url(#ouro)" stroke-width="2" opacity="0.85"/>
+  <!-- Monograma JM dourado (marca João Moreira) -->
+  <text x="32" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="30" letter-spacing="-2" fill="url(#ouro)">JM</text>
+</svg>

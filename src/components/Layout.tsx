@@ -29,6 +29,8 @@ import {
   NAV_LINKS,
   getWhatsAppLink,
 } from '../lib/constants'
+// Logo oficial da marca JM (monograma dourado com leão)
+import logoJmMark from '../assets/ee775d76-a5d6-4d04-96ae-741361e9c612-ea172.jpg'
 
 interface LayoutProps {
   children?: React.ReactNode
@@ -216,10 +218,13 @@ export default function Layout({ children }: LayoutProps) {
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] rounded-md py-1"
             aria-label={`${PUBLIC_BRAND_NAME} - Página Inicial`}
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#102A5C] via-[#0A1F44] to-[#06132B] border border-[#C9A227]/50 flex items-center justify-center shadow-md group-hover:border-[#C9A227] transition-all">
-              <span className="font-serif font-black text-[#C9A227] text-base tracking-tighter group-hover:scale-110 transition-transform">
-                JM
-              </span>
+            <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#F5F1E6] border border-[#C9A227]/50 shadow-md group-hover:border-[#C9A227] transition-all shrink-0">
+              <img
+                src={logoJmMark}
+                alt="Logotipo JM — monograma dourado com leão de João Moreira"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
             </div>
             <div className="flex flex-col text-left">
               <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white leading-none group-hover:text-[#F2E5B5] transition-colors">
@@ -357,8 +362,12 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-[#1A3868]">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#102A5C] border border-[#C9A227]/40 flex items-center justify-center">
-                    <span className="font-serif font-black text-[#C9A227] text-sm">JM</span>
+                  <div className="w-9 h-9 rounded-lg overflow-hidden bg-[#F5F1E6] border border-[#C9A227]/40 shrink-0">
+                    <img
+                      src={logoJmMark}
+                      alt="Logotipo JM — monograma dourado com leão de João Moreira"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <span className="font-serif text-base font-bold text-white block">
@@ -457,8 +466,13 @@ export default function Layout({ children }: LayoutProps) {
             {/* Col 1 & 2: Brand & Positioning */}
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#102A5C] border border-[#C9A227]/40 flex items-center justify-center">
-                  <span className="font-serif font-black text-[#C9A227] text-base">JM</span>
+                <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#F5F1E6] border border-[#C9A227]/40 shrink-0">
+                  <img
+                    src={logoJmMark}
+                    alt="Logotipo JM — monograma dourado com leão de João Moreira"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div>
                   <span className="font-serif text-xl font-bold tracking-tight text-white block">

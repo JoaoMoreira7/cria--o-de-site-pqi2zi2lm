@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { SITE_URL } from './constants'
+// Logo oficial da marca JM (monograma dourado com leão) — usado como imagem
+// de compartilhamento em todas as páginas.
+import logoJmImg from '../assets/ee775d76-a5d6-4d04-96ae-741361e9c612-ea172.jpg'
 
 export interface RouteSeoMetadata {
   title: string
@@ -133,6 +136,13 @@ const DEFAULT_SEO: RouteSeoMetadata = {
   ogType: 'website',
 }
 
+// Imagem oficial de compartilhamento (monograma JM com leão): no build de
+// produção o import resolve para /assets/<arquivo-hash>.jpg, servido no
+// domínio oficial — é o preview exibido em WhatsApp, Instagram, X etc.
+export const OG_IMAGE_URL = `${SITE_URL}${logoJmImg}`
+export const OG_IMAGE_ALT =
+  'Monograma JM com leão — João Moreira, Perito Judicial TJMG e Consultor Técnico'
+
 /**
  * Atualiza dinamicamente as tags de SEO (title, meta description, canonical, Open Graph e Twitter)
  * na navegação SPA para cada rota acessada pelo usuário e rastreadores.
@@ -178,11 +188,18 @@ export function updatePageSeo(pathname: string) {
   setMeta('property', 'og:description', meta.description)
   setMeta('property', 'og:url', canonicalUrl)
   setMeta('property', 'og:type', meta.ogType || 'website')
+  // Imagem de preview do link (WhatsApp, Instagram, Facebook, LinkedIn...)
+  setMeta('property', 'og:image', OG_IMAGE_URL)
+  setMeta('property', 'og:image:secure_url', OG_IMAGE_URL)
+  setMeta('property', 'og:image:type', 'image/jpeg')
+  setMeta('property', 'og:image:alt', OG_IMAGE_ALT)
 
   // 6. Twitter Card
   setMeta('name', 'twitter:title', meta.title)
   setMeta('name', 'twitter:description', meta.description)
   setMeta('name', 'twitter:url', canonicalUrl)
+  setMeta('name', 'twitter:image', OG_IMAGE_URL)
+  setMeta('name', 'twitter:image:alt', OG_IMAGE_ALT)
 }
 
 /**
