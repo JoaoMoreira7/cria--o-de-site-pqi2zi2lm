@@ -1,9 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { SITE_URL } from './constants'
-// Logo oficial da marca JM (monograma dourado com leão) — usado como imagem
-// de compartilhamento em todas as páginas.
-import logoJmImg from '../assets/ee775d76-a5d6-4d04-96ae-741361e9c612-ea172.jpg'
 
 export interface RouteSeoMetadata {
   title: string
@@ -136,10 +133,9 @@ const DEFAULT_SEO: RouteSeoMetadata = {
   ogType: 'website',
 }
 
-// Imagem oficial de compartilhamento (monograma JM com leão): no build de
-// produção o import resolve para /assets/<arquivo-hash>.jpg, servido no
-// domínio oficial — é o preview exibido em WhatsApp, Instagram, X etc.
-export const OG_IMAGE_URL = `${SITE_URL}${logoJmImg}`
+// Imagem oficial de compartilhamento (monograma JM com leão):
+// URL absoluta estática oficial no domínio próprio, servindo o arquivo jm-og-logo.jpg.
+export const OG_IMAGE_URL = `${SITE_URL}/jm-og-logo.jpg`
 export const OG_IMAGE_ALT =
   'Monograma JM com leão — João Moreira, Perito Judicial TJMG e Consultor Técnico'
 
