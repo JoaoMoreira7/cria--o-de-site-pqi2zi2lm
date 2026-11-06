@@ -53,6 +53,34 @@
     <meta name="format-detection" content="telephone=yes" />
     <meta name="theme-color" content="#0A1F44" />
 
+    <!-- Bloqueio do selo/badge Skip: esconde no primeiro paint, antes do JS (regras na layer(base),
+         fora do alcance do purificador do Tailwind, que processa apenas src/main.css) -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&display=swap') layer(base);
+      #skip-badge,
+      [data-skip-badge],
+      [data-skip-branding],
+      .skip-badge,
+      #skip-branding,
+      #skip-brand,
+      iframe[src*='goskip'],
+      a[href*='goskip.dev']:not([data-allow-skip]),
+      a[href*='goskip.app']:not([data-allow-skip]),
+      img[src*='skip.png'],
+      img[src*='skip-logo'],
+      img[alt*='Skip' i],
+      div:has(> img[src*='skip.png']),
+      a:has(> img[src*='skip.png']),
+      a:has(img[alt*='Skip' i]),
+      body :not(html):not(#root):has(> a[href*='goskip.dev']),
+      body :not(html):not(#root):has(> a[href*='goskip.app']) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+
     <!-- Favicon e Ícones: SVG priorizado para o monograma JM -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />

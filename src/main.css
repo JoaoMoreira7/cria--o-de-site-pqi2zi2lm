@@ -118,15 +118,24 @@
     margin: 0 !important;
   }
 
-  /* Ocultar badge/selo de branding Skip */
+  /* Ocultar badge/selo de branding Skip (injetado em tempo de execução pelo script da plataforma) */
+  #skip-badge,
   [data-skip-badge],
+  [data-skip-branding],
   .skip-badge,
+  #skip-branding,
+  #skip-brand,
+  iframe[src*='goskip'],
   a[href*='goskip.dev']:not([data-allow-skip]),
   a[href*='goskip.app']:not([data-allow-skip]),
   img[src*='skip.png'],
-  img[alt*='Skip'],
+  img[src*='skip-logo'],
+  img[alt*='Skip' i],
   div:has(> img[src*='skip.png']),
-  a:has(> img[src*='skip.png']) {
+  a:has(> img[src*='skip.png']),
+  a:has(img[alt*='Skip' i]),
+  body :not(html):not(#root):has(> a[href*='goskip.dev']),
+  body :not(html):not(#root):has(> a[href*='goskip.app']) {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;

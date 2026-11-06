@@ -71,81 +71,102 @@ export default function Layout({ children }: LayoutProps) {
     }
   }, [mobileMenuOpen])
 
-  // Remove any dynamic "Criado com Skip" badge/element injected into the DOM
+  // Blindagem definitiva contra o selo/badge Skip injetado em tempo de execução.
+  // O script da plataforma injeta o badge via appendChild no documentElement (FORA do #root),
+  // por isso: interceptamos o próprio appendChild (remoção no mesmo tick) + observer
+  // no documentElement (navegação SPA/re-injeção). CSS em index.html/main.css esconde no 1º paint.
   useEffect(() => {
-    const removeSkipBadge = () => {
-      // 1. Target any element containing "Criado com Skip" or "Feito com Skip" or "goskip"
-      const allElements = document.querySelectorAll('body *')
-      allElements.forEach((el) => {
-        // Skip root containers or main app wrappers
-        if (
-          el.id === 'root' ||
-          el.tagName === 'BODY' ||
-          el.tagName === 'HTML' ||
-          el.tagName === 'MAIN'
-        ) {
-          return
-        }
+    if (document.documentElement.dataset.skipBadgeShield === 'on') return
+    document.documentElement.dataset.skipBadgeShield = 'on'
 
-        const text = el.textContent?.trim() || ''
-        const ariaLabel = el.getAttribute('aria-label') || ''
-        const title = el.getAttribute('title') || ''
-        const href = el.getAttribute('href') || ''
+    const isSkipBadge = (node: Element): boolean => {
+      if (!(node instanceof Element)) return false
+      if (node.id === 'root') return false
+      if (
+        node.id === 'skip-badge' ||
+        node.id === 'skip-branding' ||
+        node.id === 'skip-brand' ||
+        node.hasAttribute('data-skip-badge') ||
+        node.hasAttribute('data-skip-branding') ||
+        node.classList.contains('skip-badge')
+      ) {
+        return true
+      }
+      const href = node.getAttribute('href') || ''
+      const src = node.getAttribute('src') || ''
+      const alt = node.getAttribute('alt') || ''
+      if (href.includes('goskip.dev') || href.includes('goskip.app')) return true
+      if (node.tagName === 'IFRAME' && src.includes('goskip')) return true
+      if (
+        node.tagName === 'IMG' &&
+        (src.includes('skip.png') || src.includes('skip-logo') || /skip/i.test(alt))
+      ) {
+        return true
+      }
+      // Container do selo: link goskip aninhado (ex. div > a > img)
+      return (
+        node.querySelector(
+          "a[href*='goskip.dev'], a[href*='goskip.app'], img[src*='skip.png'], img[src*='skip-logo']",
+        ) !== null
+      )
+    }
 
-        const isSkipBrand =
-          text === 'Criado com o Skip' ||
-          text === 'Criado com Skip' ||
-          text === 'Feito com o Skip' ||
-          text === 'Feito com Skip' ||
-          text.includes('Criado com o Skip') ||
-          text.includes('Criado com Skip') ||
-          ariaLabel.includes('Skip') ||
-          title.includes('Skip') ||
-          href.includes('goskip.dev') ||
-          href.includes('goskip.app')
-
-        if (isSkipBrand) {
-          // If it's a floating badge container (fixed/absolute) or direct badge link/element
-          const computed = window.getComputedStyle(el)
-          if (
-            computed.position === 'fixed' ||
-            computed.position === 'absolute' ||
-            el.tagName === 'A' ||
-            el.tagName === 'IMG'
-          ) {
-            ;(el as HTMLElement).style.setProperty('display', 'none', 'important')
-            ;(el as HTMLElement).style.setProperty('visibility', 'hidden', 'important')
-            ;(el as HTMLElement).style.setProperty('opacity', '0', 'important')
-            ;(el as HTMLElement).style.setProperty('pointer-events', 'none', 'important')
-            el.remove()
-          }
-        }
-
-        // Also check if image has skip.png
-        if (el.tagName === 'IMG') {
-          const src = el.getAttribute('src') || ''
-          const alt = el.getAttribute('alt') || ''
-          if (src.includes('skip.png') || alt.toLowerCase().includes('skip')) {
-            const parent = el.parentElement
-            if (parent && (parent.tagName === 'A' || parent.tagName === 'DIV')) {
-              ;(parent as HTMLElement).style.setProperty('display', 'none', 'important')
-              parent.remove()
-            } else {
-              el.remove()
-            }
-          }
-        }
+    const removeSkipBadge = (root: ParentNode) => {
+      root
+        .querySelectorAll<HTMLElement>(
+          "#skip-badge, [data-skip-badge], [data-skip-branding], .skip-badge, #skip-branding, #skip-brand, iframe[src*='goskip'], a[href*='goskip.dev'], a[href*='goskip.app'], img[src*='skip.png'], img[src*='skip-logo']",
+        )
+        .forEach((el) => el.remove())
+      // Containers com o selo aninhado (div/span gerados pelo script)
+      root.querySelectorAll<HTMLElement>('body > div:not(#root)').forEach((el) => {
+        if (isSkipBadge(el)) el.remove()
       })
     }
 
-    removeSkipBadge()
-    const interval = setInterval(removeSkipBadge, 500)
-    const observer = new MutationObserver(removeSkipBadge)
-    observer.observe(document.body, { childList: true, subtree: true })
+    const scanAll = () => {
+      removeSkipBadge(document)
+    }
+
+    // Intercepta a própria injeção: qualquer appendChild de selo é desfeito no mesmo tick
+    const nativeAppendChild = Element.prototype.appendChild
+    if (!(Element.prototype as unknown as { __skipBadgePatched?: boolean }).__skipBadgePatched) {
+      ;(Element.prototype as unknown as { __skipBadgePatched?: boolean }).__skipBadgePatched = true
+      Element.prototype.appendChild = function patchedAppendChild<T extends Node>(child: T): T {
+        const appended = nativeAppendChild.call(this, child)
+        const el: Element | null = child instanceof Element ? child : null
+        if (el && el !== document.body && el.id !== 'root' && isSkipBadge(el)) {
+          el.remove()
+        }
+        return appended
+      } as typeof Element.prototype.appendChild
+    }
+
+    scanAll()
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        m.addedNodes.forEach((n) => {
+          if (n instanceof Element && n !== document.body && n.id !== 'root' && isSkipBadge(n)) {
+            n.remove()
+            return
+          }
+          if (
+            n instanceof Element &&
+            n.querySelector?.("a[href*='goskip'], img[src*='skip.png']")
+          ) {
+            removeSkipBadge(n)
+          }
+        })
+      }
+    })
+    // Observa o documentElement (badge pode ser adicionado como filho direto do <html>)
+    observer.observe(document.documentElement, { childList: true, subtree: true })
+
+    // Rede de segurança: varredura periódica leve
+    const interval = window.setInterval(scanAll, 2000)
 
     return () => {
-      clearInterval(interval)
       observer.disconnect()
+      window.clearInterval(interval)
     }
   }, [])
 
